@@ -1,0 +1,45 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/cockpit/(.*)$",
+      "destination": "aicore_hanadb",
+      "csrfProtection": false,
+      "authenticationType": "none",
+      "target": "/cockpit/$1"
+    },
+    {
+      "source": "^/deployments/(.*)$",
+      "destination": "aicore_api",
+      "csrfProtection": false,
+      "authenticationType": "none",
+      "target": "/deployments/$1"
+    },
+        {
+      "source": "^/lm/(.*)$",
+      "destination": "duplicate_aicore",
+      "csrfProtection": false,
+      "authenticationType": "none",
+      "target": "/lm/$1"
+    },
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

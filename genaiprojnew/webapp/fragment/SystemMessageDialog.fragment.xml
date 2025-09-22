@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Dialog title="Select System Message" contentWidth="500px">
+    <List items="{BSData>/}" mode="SingleSelectMaster" selectionChange="onSystemMessageSelected">
+      <items>
+        <StandardListItem title="{BSData>content}" />
+      </items>
+    </List>
+    <endButton>
+      <Button text="Close" press="onCloseSystemMessageDialog" />
+    </endButton>
+  </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,7 @@
+/* Enter your custom styles here */
+.sapFFCLColumnBegin {
+   width: 300px !important;
+}
+.sapFFCL .sapFFCLColumn.sapFFCLPinnedColumn .sapFFCLColumnContent{
+   width: 970px !important;
+}

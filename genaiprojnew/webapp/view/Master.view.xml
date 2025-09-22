@@ -1,0 +1,91 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    controllerName="genaiprojnew.controller.Master">
+
+    <App id="App">
+        <Page id="masterPage" showNavButton="false" showHeader="true">
+            
+            <!-- Custom Header with Buttons -->
+            <customHeader>
+            <Toolbar>
+        <!-- Title aligned center -->
+        <Title text="SDLC Use Cases" level="H4" />
+         
+        <!-- Spacer to push buttons away from title -->
+        <ToolbarSpacer />
+
+        <!-- Buttons aligned center -->
+        <HBox class="sapUiSmallMarginEnd">
+            <Button icon="sap-icon://employee" tooltip="User Log" press="onUserLogsPress"
+                    type="Transparent" width="2rem" />
+
+            <Button icon="sap-icon://list" tooltip="All Logs" press="onAllLogsPress"
+                    type="Transparent" width="2rem" />
+
+            <Button icon="sap-icon://feedback" tooltip="Feedback"
+                    width="2rem" type="Transparent" />
+        </HBox>
+    
+    </Toolbar>
+</customHeader>
+
+
+            <!-- Content Area -->
+            <VBox class="sapUiSmallMargin">
+                <!-- Spacer -->
+                <Toolbar height="1rem" design="Transparent" />
+
+                <!-- Tab List -->
+                <List id="list" mode="SingleSelectMaster" selectionChange="onTabSelect">
+                    <StandardListItem title="Business Discussion/PMO" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="BS" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="User Story Creation" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="User" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="Functional Configuration/FSD" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="fstoconf" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="QSD/TSD" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="fstots" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="Code Generation" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="tstocode" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="Code Remediation" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="coderem" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="Code Summary" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="codesum" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="Code Generation (Git Powered)" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="tstocodeGit" />
+                        </customData>
+                    </StandardListItem>
+                    <StandardListItem title="Technical Unit Testing" type="Active">
+                        <customData>
+                            <core:CustomData key="tabKey" value="TUT" />
+                        </customData>
+                    </StandardListItem>
+                </List>
+            </VBox>
+        </Page>
+    </App>
+</mvc:View>

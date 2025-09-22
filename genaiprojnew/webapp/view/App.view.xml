@@ -1,0 +1,32 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:unified="sap.ui.unified"
+    controllerName="genaiprojnew.controller.App"
+    displayBlock="true"
+    height="100%">
+
+    <VBox fitContainer="true">
+        <!-- Main Content -->
+        <f:FlexibleColumnLayout
+            id="flexibleColumnLayout"
+            layout="{layout}"
+            backgroundDesign="Solid"
+            class="sapUiResponsiveMargin"
+            stateChange=".onStateChanged"/>
+
+        <!-- Global Footer -->
+        <Toolbar>
+            <HBox wrap="Wrap" alignItems="Center" justifyContent="End" width="100%">
+                <Button icon="sap-icon://refresh" tooltip="Refresh" type="Emphasized" class="sapUiTinyMarginBegin" />
+                <Button icon="sap-icon://doc-attachment" tooltip="Export to doc" type="Emphasized" class="sapUiTinyMarginBegin" />
+                <Button icon="sap-icon://pdf-attachment" tooltip="Export to pdf" type="Emphasized" class="sapUiTinyMarginBegin" />
+                <Button text="Send to AI"  icon="sap-icon://paper-plane" type="Emphasized" class="sapUiTinyMarginBegin" press="onSendToAI" />
+                <Button text="History" icon="sap-icon://history" type="Emphasized" class="sapUiTinyMarginBegin" />
+            </HBox>
+        </Toolbar>
+    </VBox>
+</mvc:View>

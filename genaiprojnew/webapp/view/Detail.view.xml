@@ -1,0 +1,100 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    controllerName="genaiprojnew.controller.Detail">
+
+    <m:Page id="detailPage" class="sapUiContentPadding" showHeader="false">
+        <m:content>
+            <!-- Split layout: Left (main content) + Right (file preview) -->
+            <m:HBox width="100%" alignItems="Start">
+        
+                <!-- LEFT SIDE: Existing Detail View -->
+                <m:VBox width="60%">
+                    <!-- System Message Section -->
+                    <m:VBox class="sapUiTinyMarginTop">
+                        <m:Label text="System Message" design="Bold" class="sapUiTinyMarginBottom" />
+                        <m:HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                            <m:Input                        
+                                id="systemMessageInput"
+                                value="{appmodel>/atcSystemMessage}"
+                                showValueHelp="true"
+                                valueHelpRequest="onValueHelpRequest"
+                                width="95%"
+                                class="sapUiTinyMarginEnd">
+                                <m:layoutData>
+                                    <m:FlexItemData growFactor="0" />
+                                </m:layoutData>
+                            </m:Input>
+                            <m:Button icon="sap-icon://add" tooltip="Add" class="sapUiTinyMarginEnd" />
+                            <m:Button icon="sap-icon://edit" tooltip="Edit" class="sapUiTinyMarginEnd" />
+                            <m:Button text="Add Example" class="sapUiTinyMarginEnd" />
+                            <m:Button icon="sap-icon://settings" tooltip="Parameters" class="sapUiTinyMarginEnd" />
+                        </m:HBox>
+                        <m:TextArea width="98%" rows="2" editable="false" class="sapUiTinyMarginBottom" />
+                    </m:VBox>
+
+                    <!-- Selected File Row -->
+                    <m:HBox alignItems="Center" class="sapUiTinyMarginBottom" justifyContent="Start">
+                        <m:Label text="Selected File:" design="Bold"/>
+                        <m:Input width="20px" class="sapUiTinyMarginEnd"/>
+                        <m:Button icon="sap-icon://upload" class="sapUiTinyMarginBegin" press="onFileUpload" />
+                        <m:Button text="Preview" class="sapUiTinyMarginBegin" />
+                        <m:Button text="Files" icon="sap-icon://document" class="sapUiTinyMarginBegin" />
+                        <m:Label text="Select Model:" design="Bold" class="sapUiTinyMarginBegin"/>
+                        <m:ComboBox width="48%" class="sapUiTinyMarginBegin">
+                            <m:items>
+                                <core:Item key="gpt4" text="GPT-4" />
+                                <core:Item key="gpt4o" text="GPT-4o" />
+                                <core:Item key="gpt5" text="GPT-5" />
+                            </m:items>
+                        </m:ComboBox>
+                    </m:HBox>
+
+                    <!-- RAG Toggle -->
+                    <m:HBox alignItems="Center" justifyContent="Start" class="sapUiTinyMarginBottom">
+                        <m:Label text="Enable Rag Search:" design="Bold" />
+                        <m:Switch state="{/ragEnabled}" class="sapUiTinyMarginBegin" change="onRagToggleChange" />
+                        <m:Label text="Reference to uploaded file:" design="Bold" visible="{= ${/ragEnabled} }" class="sapUiTinyMarginBegin" />
+                        <m:Switch state="{/subToggleState}" visible="{= ${/ragEnabled} }" class="sapUiTinyMarginBegin" />
+                    </m:HBox>
+
+                    <!-- Prompt Input -->
+                    <m:VBox class="sapUiTinyMarginBottom">
+                        <m:Label text="Prompts" design="Bold" />
+                        <m:Input showValueHelp="true" width="50%" valueHelpRequest="onValueHelpRequest" />
+                    </m:VBox>
+
+                    <!-- Add Your Prompt -->
+                    <m:VBox class="sapUiTinyMarginBottom">
+                        <m:Label text="Add Your Prompt" design="Bold" />
+                        <m:TextArea rows="3" width="98%" />
+                    </m:VBox>
+                </m:VBox>
+
+                
+                <!-- RIGHT SIDE: Uploaded File Content Preview with Token Limit -->
+            <m:VBox width="50%" class="sapUiSmallMarginBegin sapUiMediumMarginEnd">
+                <m:HBox justifyContent="SpaceBetween" alignItems="Center">
+                    <m:Label text="AI Response" design="Bold" />
+                    <!-- <m:Label text="Token Limit: 0 / 128000" class="sapUiTinyMarginEnd" /> -->
+                </m:HBox>
+
+                <!-- <m:ScrollContainer height="400px" vertical="true" width="100%"> -->
+                    <m:TextArea
+                        value="{/uploadedFileContent}"
+                        width="100%"
+                        growing="false"
+                        editable="true"
+                        rows="32"
+                        height="400px"
+                    />
+                <!-- </m:ScrollContainer> -->
+            </m:VBox>
+
+            </m:HBox>
+        </m:content>
+    </m:Page>
+</mvc:View>
