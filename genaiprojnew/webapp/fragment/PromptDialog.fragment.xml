@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        title="Prompt Message"
+        class="customDialogSize"
+        items="{dynamicPromptModel>/}"
+        liveChange="onPromptSearch"
+        confirm="onPromptConfirm"
+        cancel="onPromptCancel">
+        <StandardListItem
+            title="{dynamicPromptModel>PROMPT_TEMPLATE}"
+            tooltip="{dynamicPromptModel>PROMPT_TEMPLATE}" />
+    </SelectDialog>
+</core:FragmentDefinition>

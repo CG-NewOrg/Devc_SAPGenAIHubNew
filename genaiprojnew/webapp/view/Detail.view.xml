@@ -4,6 +4,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
     xmlns:tnt="sap.tnt"
+    id="detailView"
     controllerName="genaiprojnew.controller.Detail"
 >
     <m:Page
@@ -100,6 +101,7 @@
                             rows="2"
                             editable="false"
                             class="sapUiTinyMarginEnd"
+                            value="{appmodel>/selectedSysMsgTemplate}"
                         >
                             <m:layoutData>
                                 <m:FlexItemData growFactor="1" />
@@ -225,6 +227,8 @@
                             design="Bold"
                         />
                         <m:Input
+                            id="promptInput"
+                            value="{appmodel>/selectedPrompt}"
                             showValueHelp="true"
                             width="50%"
                             valueHelpRequest="onValueHelpRequest"
@@ -240,6 +244,8 @@
                         <m:TextArea
                             rows="3"
                             width="98%"
+                             value="{appmodel>/selectedPromptText}"
+                            editable="true"
                         />
                     </m:VBox>
                 </m:VBox>

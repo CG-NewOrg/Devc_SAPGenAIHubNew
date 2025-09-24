@@ -1,12 +1,18 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-  <Dialog title="Select System Message" contentWidth="500px">
-    <List items="{BSData>/}" mode="SingleSelectMaster" selectionChange="onSystemMessageSelected">
-      <items>
-        <StandardListItem title="{BSData>content}" />
-      </items>
-    </List>
-    <endButton>
-      <Button text="Close" press="onCloseSystemMessageDialog" />
-    </endButton>
-  </Dialog>
+    <Dialog title="Select System Message" contentWidth="500px">
+        <List
+            items="{dynamicSysMsgModel>/}"
+            mode="SingleSelectMaster"
+            selectionChange="onSystemMessageSelected">
+            <items>
+                <StandardListItem
+                    title="{dynamicSysMsgModel>PROMPTID}"
+                    description="{= ${dynamicSysMsgModel>PROMPT_TEMPLATE} ? ${dynamicSysMsgModel>PROMPT_TEMPLATE} : ${dynamicSysMsgModel>PROMPTID} }"
+                    tooltip="{= ${dynamicSysMsgModel>PROMPT_TEMPLATE} ? ${dynamicSysMsgModel>PROMPT_TEMPLATE} : ${dynamicSysMsgModel>PROMPTID} }" />
+            </items>
+        </List>
+        <endButton>
+            <Button text="Close" press="onCloseSystemMessageDialog" />
+        </endButton>
+    </Dialog>
 </core:FragmentDefinition>
