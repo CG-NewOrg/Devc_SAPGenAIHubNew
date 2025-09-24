@@ -151,9 +151,11 @@ sap.ui.define([
             oView.addDependent(oDialog);
             oDialog.setModel(oModel, "dynamicPromptModel");
             // oDialog.attachConfirm(that.onPromptConfirm.bind(that, modelName));
+
             oDialog.attachConfirm(function (oEvent) {
-              this.onPromptConfirm(sModelName, oEvent);
-            }.bind(this));
+              that.onPromptConfirm(oEvent, modelName);
+            });
+
             oDialog.attachCancel(that.onPromptCancel, that);
             oDialog.attachLiveChange(that.onPromptSearch, that);
             oDialog.open();
@@ -195,14 +197,14 @@ sap.ui.define([
       });
     },
     onPromptConfirm: function (oEvent, sModelName) {
-  const oSelectedItem = oEvent.getParameter("selectedItem");
-  if (oSelectedItem) {
-    const sPrompt = oSelectedItem.getTitle();
-    this.getView().getModel("appmodel").setProperty("/selectedPrompt", sPrompt);
-    this.getView().getModel("appmodel").setProperty("/selectedPromptText", sPrompt); // for editable TextArea
-    sap.m.MessageToast.show("Selected Prompt from " + sModelName + ": " + sPrompt);
-  }
-},
+      const oSelectedItem = oEvent.getParameter("selectedItem");
+      if (oSelectedItem) {
+        const sPrompt = oSelectedItem.getTitle();
+        this.getView().getModel("appmodel").setProperty("/selectedPrompt", sPrompt);
+        this.getView().getModel("appmodel").setProperty("/selectedPromptText", sPrompt); // for editable TextArea
+        sap.m.MessageToast.show("Selected Prompt from " + sModelName + ": " + sPrompt);
+      }
+    },
     onPromptCancel: function () {
       // Optional cancel logic
     },
