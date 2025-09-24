@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Popover id="idParamPopup" title="{i18n>TitleParamPopup}" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer" placement="HorizontalPreferredRight" resizable="true" modal="true" contentWidth="25rem" contentHeight="25rem" initialFocus="closeParameterPopUp">
+
+
+        <VBox class="sapUiSmallMargin">
+            <Title text="Temperature" class="sapUiSmallMarginBegin" />
+            <HBox>
+                <Slider class="sapUiSmallMarginBegin" value="{viewModel>/comnPopUpModelParamTemp}" width="100%" min="0" max="1" step="0.01" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" change="onSliderChangeTempartre" />
+                <Input class="sapUiSmallMarginBegin" value="{viewModel>/comnPopUpModelParamTemp}" width="40%" />
+            </HBox>
+
+            <Title text="Top Probabilities" class="sapUiSmallMarginBegin" />
+            <HBox>
+                <Slider value="{viewModel>/comnPopUpModelParamTopP}" width="100%" min="0" max="1" step="0.01" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" class="sapUiSmallMarginBegin" change="onSliderChangeTopProblity" />
+                <Input class="sapUiSmallMarginBegin" value="{viewModel>/comnPopUpModelParamTopP}" width="40%" />
+            </HBox>
+
+            <Title text="Max Response (Tokens)" class="sapUiSmallMarginBegin" visible="{= ${appModel>/bAiAssistant} === false}" />
+            <HBox>
+                <Slider value="{viewModel>/comnPopUpModelParamMaxLength}" width="100%" min="0" max="32000" step="1" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" class="sapUiSmallMarginBegin" change="onSliderChangeParamMaxLength"/>
+                <Input class="sapUiSmallMarginBegin" value="{viewModel>/comnPopUpModelParamMaxLength}" width="40%" />
+            </HBox>
+
+            <Title text="Frequency Penalty" class="sapUiSmallMarginBegin" visible="{= ${appModel>/bAiAssistant} === false}" />
+            <HBox>
+                <Slider value="{viewModel>/comnPopUpModelParamFreqP}" width="100%" min="0" max="2" step="0.01" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" class="sapUiSmallMarginBegin" change="onSliderChangeParamFreqP" />
+                <Input class="sapUiSmallMarginBegin" value="{viewModel>/comnPopUpModelParamFreqP}" width="40%" />
+            </HBox>
+
+            <Title text="Presence Penalty" class="sapUiSmallMarginBegin" visible="{= ${appModel>/bAiAssistant} === false}" />
+            <HBox>
+                <Slider value="{viewModel>/comnPopUpModelParamPresenceP}" width="100%" min="0" max="2" step="0.01" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" class="sapUiSmallMarginBegin" change="onSliderChangeParamPresenceP" />
+                <Input class="sapUiSmallMarginBegin" value="{viewModel>/comnPopUpModelParamPresenceP}" width="40%" />
+            </HBox>
+
+            <Title text="Context History" class="sapUiSmallMarginBegin" visible="{= ${appModel>/bAiAssistant} === false}" />
+            <HBox>
+                <Slider value="{viewModel>/comnPopUpModelParamContextHist}" width="100%" min="2" max="20" step="1" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" class="sapUiSmallMarginBegin" change="onSliderChangeParamContextHist" />
+                <Input class="sapUiSmallMarginBegin" value="{viewModel>/comnPopUpModelParamContextHist}" width="40%" />
+            </HBox>
+        </VBox>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <!-- <Button id="editParameterPopUp" text="Edit" press="handleEditParameterPopUp" /> -->
+                <Button id="refreshParameterPopUp" text="Refresh" press="handleRefreshParameterPopUp" />
+                <Button id="SaveParameterPopUp" text="Save" press="handleSaveParameterPopUp" />
+                <Button id="cancelParameterPopUp" text="Cancel" press="handleCancelParameterPopUp" />
+            </OverflowToolbar>
+        </footer>
+    </Popover>
+</core:FragmentDefinition>

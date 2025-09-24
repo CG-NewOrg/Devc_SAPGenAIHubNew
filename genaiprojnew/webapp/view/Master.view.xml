@@ -25,7 +25,7 @@
                     type="Transparent" width="2rem" />
 
             <Button icon="sap-icon://feedback" tooltip="Feedback"
-                    width="2rem" type="Transparent" />
+                    width="2rem" type="Transparent" press="handlePressFeedback"/>
         </HBox>
     
     </Toolbar>

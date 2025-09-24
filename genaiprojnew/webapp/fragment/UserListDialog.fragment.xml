@@ -1,0 +1,60 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="iduserListDialog"
+        title="All User List Log"
+        resizable="true"
+    >
+        <content>
+            <Table
+                id="UserList"
+                inset="false"
+                items="{UserloginModel>/}"
+            >
+                <columns>
+                    <Column width="10em">
+                        <Text text="User Name" />
+                    </Column>
+                    <Column width="15em">
+                        <Text text="Email" />
+                    </Column>
+                    <Column width="15em">
+                        <Text text="Project" />
+                    </Column>
+                    <Column width="10em">
+                        <Text text="Date" />
+                    </Column>
+
+                    <Column width="10em">
+                        <Text text="Total duration" />
+                    </Column>
+                    <Column width="10em">
+                        <Text text="No. Of Session" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{UserloginModel>USERNAME}" />
+                            <Text text="{UserloginModel>EMAIL_ID}" />
+                            <Text text="{UserloginModel>project}" />
+                             <Text text="{UserloginModel>date}"/>                    
+                            
+                            <Text text="{UserloginModel>totalDuration}" />
+                            
+                            <Text text="{UserloginModel>totalSessions}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <buttons>
+            <Button
+                text="Close"
+                press="openUserloglistCancel"
+            />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

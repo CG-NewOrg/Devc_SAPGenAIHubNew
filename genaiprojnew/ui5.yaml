@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-
+ 
 # $schema: /home/user/projects/GenAIHubNew/genaiprojnew/ui5.yaml.schema.json
-
+ 
 specVersion: "3.1"
 metadata:
   name: genaiprojnew
@@ -17,6 +17,9 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+        backend:
+          - path: /cockpit
+            url: https://capgemini-service-sas---medallion-cg-pbs-genai-dev-gen-1a225d25.cfapps.eu10-004.hana.ondemand.com/odata/v4       
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">  
+    <Dialog title="Provide your feedback!">  
+        <content>  
+            <form:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4">  
+                <form:content>  
+                    <Label text="Issue Type" />  
+                    <Select selectedKey="{appmodel>/feedbackForm/issueType}">  
+                        <items>  
+                            <core:Item key="Technical" text="Technical" />  
+                            <core:Item key="Basis" text="Basis" />
+                            <core:Item key="Other" text="Other" />
+                        </items>  
+                    </Select>  
+                    <Label text="Priority" />
+                    <Select selectedKey="{appmodel>/feedbackForm/priority}">  
+                        <items>  
+                            <core:Item key="Low" text="Low" />  
+                            <core:Item key="Medium" text="Medium" />
+                            <core:Item key="High" text="High" />
+                        </items>  
+                    </Select>                     
+                    <Label text="Title" required="true"/>
+                    <Input value="{appmodel>/feedbackForm/issueSubject}"/>
+                    <Label text="Description" required="true"/>  
+                    <TextArea maxLength="1024" value="{appmodel>/feedbackForm/issueDesc}"
+                        rows="4" growing="true" growingMaxLines="8" showExceededText="true"/>
+                 
+                </form:content>
+            </form:SimpleForm> 
+            
+            <HBox class="sapUiMediumMargin">  
+                <Text text="*Note: Please drop an email to " />  
+                <Link text="'DL IN NA AS SAP - Technical Solution Center'" press="onPressFeedbackEmail" />  
+                <Text text=" in case of any Issue!" />
+            </HBox> 
+        </content>  
+        <buttons>  
+            <Button text="Submit" press="onFeedbackSubmit" />  
+            <Button text="Cancel" press="onFeedbackCancel" />  
+        </buttons>  
+    </Dialog>
+</core:FragmentDefinition>
