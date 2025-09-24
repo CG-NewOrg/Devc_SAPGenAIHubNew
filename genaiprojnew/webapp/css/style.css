@@ -5,3 +5,6 @@
 .sapFFCL .sapFFCLColumn.sapFFCLPinnedColumn .sapFFCLColumnContent{
    width: 970px !important;
 }
+.sapMSplitContainerHideMode>.sapMSplitContainerDetail .sapUiResponsiveMargin, .sapUiResponsiveMargin {
+        margin: 1rem 1rem !important;
+    }

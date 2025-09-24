@@ -27,7 +27,19 @@
           }
         }
       }
+    },
+    "dataSources": {
+  "cockpit": {
+    "uri": "/cockpit/",
+    "type": "OData",
+    "settings": {
+      "annotations": [],
+      "localUri": "localService/cockpit/metadata.xml",
+      "odataVersion": "4.0"
     }
+  }
+}
+ 
   },
   "sap.ui": {
     "technology": "UI5",
@@ -58,7 +70,17 @@
         "settings": {
           "bundleName": "genaiprojnew.i18n.i18n"
         }
-      }
+      },
+     
+"cockpit": {
+    "dataSource": "cockpit",
+    "settings": {
+      "synchronizationMode": "None",
+      "operationMode": "Server",
+      "autoExpandSelect": true
+    }
+  }
+ 
     },
     "resources": {
       "css": [
@@ -126,5 +148,10 @@
       "id": "App",
       "async": true
     }
+  },
+  "sap.cloud":{
+    "public": true,
+    "service": "Zgenaisemobjnew"
   }
 }
+ 

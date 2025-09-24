@@ -24,8 +24,7 @@
             <m:VBox class="sapUiSmallMarginBegin sapUiMediumMarginEnd">
                 <!-- <m:ScrollContainer height="400px" width="100%" vertical="true" focusable="true"> -->
                     <m:TextArea
-                        id="aiResponseArea"
-                        value="AI Response for tab: coderem"
+                        id="aiResponseArea1"
                         width="100%"
                         growing="false"
                         rows="20"
