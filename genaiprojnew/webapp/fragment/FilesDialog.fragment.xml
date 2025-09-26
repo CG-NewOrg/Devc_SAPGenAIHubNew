@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+  <Dialog id="filesDialog" title="Uploaded Files" draggable="true" resizable="true">
+    <List
+      items="{ObjectFileList>/}"
+      mode="SingleSelectMaster"
+      selectionChange="onFileSelected">
+      <StandardListItem title="{ObjectFileList>Name}" />
+    </List>
+    <endButton>
+      <Button text="Close" press="onCloseFilesDialog" />
+    </endButton>
+  </Dialog>
+</core:FragmentDefinition>

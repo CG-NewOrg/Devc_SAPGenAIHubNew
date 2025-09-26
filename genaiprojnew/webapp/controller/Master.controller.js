@@ -47,6 +47,9 @@ sap.ui.define([
       var oSelectedItem = oEvent.getParameter("listItem");
       var sTabKey = oSelectedItem.getCustomData()[0].getValue();
 
+      const oAppModel = this.getView().getModel("appmodel");
+      oAppModel.setProperty("/selectedTabKey", sTabKey);
+
       this.getOwnerComponent().getRouter().navTo("detail", {
         tab: sTabKey,
         layout: "TwoColumnsMidExpanded"
